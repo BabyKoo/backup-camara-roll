@@ -8,7 +8,7 @@ function doCopy {
     $src,
     $dest
   )
-  robocopy $src $dest /e /xo /copy:dat 
+  robocopy $src $dest /e /xo /copyall 
 }
 function doArchive {
   $videoFolderPath = "$backupPath\PRIVATE\"
@@ -19,8 +19,9 @@ function doArchive {
     $archiveName = "PRIVATE-" + $lastWriteTimeString
     Write-Output "Video directory is found. Archiving."
     Write-Output "Video directory archive sign: "$lastWriteTimeString
-    # 归档视频目录，如果最后写入时间相同，则视为同一目录
-    Move-Item -Path $videoFolderPath -Destination ($backupPath + '\' + $archiveName)
+    # 归档视频目录，如果两最后写入时间相同，则视为同一目录
+    Move-Item -Path $videoFolderPath -Destination ($backupPath + '\' + $archiveName) 
+    # robocopy $videoFolderPath ($backupPath + '\' + $archiveName + '\') /e /xo /move /copyall
   }
   else {
     # 目录不存在，跳过
