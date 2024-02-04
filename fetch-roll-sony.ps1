@@ -26,7 +26,6 @@ function doArchive {
     # 目录不存在，跳过
     Write-Output "The video directory does not exist. Archive skipping."
   }
-  timeout /t -1
 }
 $rollDrives = New-Object System.Collections.ArrayList
 # 获取所有盘符
@@ -54,4 +53,5 @@ else {
     doCopy($rollDrive, $backupPath)
   }
   doArchive
+  timeout /t -1
 }
