@@ -1,3 +1,3 @@
 # backup-camara-roll
 
-Scrips used for backup camara roll file to Windows PC.
+Scrips used for backup camara roll files to Windows PC.
