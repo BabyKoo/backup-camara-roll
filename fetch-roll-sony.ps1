@@ -1,3 +1,14 @@
+<#
+.SYNOPSIS
+用于备份索尼相机底片文件的脚本，默认备份到当前目录。
+
+.PARAMETER b
+备份路径，默认为当前目录。
+
+.EXAMPLE
+PS> .\fetch-roll-sony.ps1 -b ".\"
+使用 "-b" 选项运行脚本，并指定备份路径为 ".\"。默认为当前目录。
+#>
 param(
   [Alias("b")]
   # 备份路径
